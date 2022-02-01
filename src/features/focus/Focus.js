@@ -3,11 +3,12 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { RoundedButton } from '../../components/RoundedButton';
 import { fontSizes, spacing } from '../../utils/sizes';
+import { colors } from '../../utils/colors';
 export const Focus = ({ addSubject }) => {
-    const [tempItem, setTempItem] = useState('g');
+    const [subject, setSubject] = useState('');
     const onSubmitEdit = () => {
-        addSubject(tempItem);
-        setTempItem('');
+        addSubject(subject);
+        setSubject('');
     }
 
     return (
@@ -23,9 +24,9 @@ export const Focus = ({ addSubject }) => {
                             }
                         }}
 
-                        value={tempItem}
+                        value={subject}
                         style={styles.inputField}
-                        onChangeText={text => setTempItem(text)}
+                        onChangeText={text => setSubject(text)}
                     />
                     <RoundedButton
                         onPress={onSubmitEdit}
@@ -51,14 +52,14 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: fontSizes.lg,
-        color: '#fff',
+        color: colors.white,
         marginBottom: spacing.md,
         fontWeight: 'bold',
     },
 
     inputField: {
         height: 60,
-        backgroundColor: '#fff',
+        backgroundColor: colors.white,
         flex: 1,
         marginRight: spacing.md,
     },
